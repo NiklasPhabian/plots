@@ -29,7 +29,7 @@ class Plot:
         self.legend = []
         self.legend_loc = None
         self.lines = []
-        self.marker_size = None
+        self.marker_size = 0
         
     def set_marker_size(self, marker_size):
         self.marker_size = marker_size
@@ -121,6 +121,9 @@ class Plot:
 
     def set_daily_ticks(self):
         self.ax.xaxis.set_major_locator(matplotlib.dates.DayLocator())
+        
+    def add_text_ticks(self, labels):
+        plt.xticks(numpy.arange(len(labels)), labels)
         
     def rotate_ticks(self, rotation):
         plt.xticks(rotation=rotation)
