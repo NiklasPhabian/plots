@@ -157,7 +157,18 @@ class Plot:
             self.ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
         if y:
             self.ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
-
+    
+    def x_log(self):
+        self.ax.set_xscale('log')
+      
+    def y_log(self):
+        self.ax.set_yscale('log')
+        
+            
+class Histogram(Plot):
+  
+  def plot_pandas(self, series, bins=10):
+      series.hist(ax=self.ax, bins=bins)      
 
 class GeoPlot(Plot):
 

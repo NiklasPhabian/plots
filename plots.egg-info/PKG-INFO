@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: plots
+Version: 0.1
+Summary: Matplotlib abstraction to make plotting easier
+Home-page: https://github.com/NiklasPhabian/plots
+Author: Niklas Griessbaum
+Author-email: UNKNOWN
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN

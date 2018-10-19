@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+plots.py
+setup.cfg
+plots.egg-info/PKG-INFO
+plots.egg-info/SOURCES.txt
+plots.egg-info/dependency_links.txt
+plots.egg-info/not-zip-safe
+plots.egg-info/top_level.txt
