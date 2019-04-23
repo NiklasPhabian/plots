@@ -19,10 +19,10 @@ font_size = 10
 
 
 class Plot:
-    def __init__(self):
-        width = 600.0 * 0.0138889   # pt
+    def __init__(self, width_inch=10, width_pixel=None, dpi=300):        
+        width = width_inch
         height = width / (1 + 5**0.5) * 2
-        self.fig, self.ax = plt.subplots(nrows=1, ncols=1, figsize=(width, height), dpi=300)
+        self.fig, self.ax = plt.subplots(nrows=1, ncols=1, figsize=(width, height), dpi=dpi)
         plt.subplots_adjust(left=0.15, bottom=0.15, right=0.9, top=None, wspace=None, hspace=None)
         self.ax2 = None
         self.setup_plot()
@@ -45,9 +45,13 @@ class Plot:
         self.x_label(series.index.name)
         self.lines.append(line)
         self.legend.append(series.name)
+        
+    def plot_pandas_df(self, dataframe, linestyle='solid', marker='None'):        
+        self.ax = dataframe.plot(ax=self.ax, grid=True, linestyle=linestyle, marker=marker, markersize=20)        
+        self.legend.append(dataframe.columns)
 
     def setup_plot(self):
-        self.ax.grid('on')
+        self.ax.grid(True)
         self.ax.tick_params(labelsize=font_size, pad=10)
 
     def add_arrows(self):
@@ -79,7 +83,7 @@ class Plot:
 
     def x_label(self, x_label):
         self.ax.set_xlabel(x_label, fontsize=font_size, labelpad=20)
-        self.ax.xaxis.set_label_coords(0.9, -0.13)
+        self.ax.xaxis.set_label_coords(0.9, -0.15)
 
     def y_label(self, y_label):
         self.ax.set_ylabel(y_label, fontsize=font_size, labelpad=20, rotation=0)
